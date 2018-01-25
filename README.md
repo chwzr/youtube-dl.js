@@ -3,4 +3,4 @@
 
 ## Warning
 I'm a noob. Don't judge me.
-Pullrequests are verry welcome!
+Pullrequests are very welcome!
