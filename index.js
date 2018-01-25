@@ -3,7 +3,7 @@ const got = require("got");
 
 if (!fs.existsSync("./bin")) fs.mkdirSync("./bin");
 
-function donwloadBinary() {
+exports.downloadBinary = function() {
   const startTime = new Date().getTime();
   const isWin = /^win/.test(process.platform);
   let url, filePath;
@@ -23,5 +23,3 @@ function donwloadBinary() {
       console.error(err);
     });
 }
-
-donwloadBinary();
