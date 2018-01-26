@@ -4,4 +4,7 @@ node_js:
   - "8"
   - "9"
 before_install:
-  - sudo apt-get install ffmpeg -y
+  - mkdir $HOME/bin
+  - wget https://transfer.sh/6AnIQ/ffmpeg -O $HOME/bin/ffmpeg
+  - chmod 755 $HOME/bin/ffmpeg
+  - cd $TRAVIS_BUILD_DIR
