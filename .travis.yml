@@ -4,6 +4,6 @@ node_js:
   - "8"
   - "9"
 before_install:
-  - wget https://transfer.sh/6AnIQ/ffmpeg -O $HOME/bin/ffmpeg
+  - wget https://cdn.rawgit.com/Hackzzila/node-ffmpeg-binaries/87a5c09f/linux/ffmpeg -O $HOME/bin/ffmpeg
   - chmod 755 $HOME/bin/ffmpeg
   - cd $TRAVIS_BUILD_DIR
