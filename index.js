@@ -6,8 +6,11 @@ const isWin = /^win/.test(process.platform);
 
 run = (url, args, options) => {
   return new Promise((resolve, reject) => {
-    args.push(url);
     let binaryPath = __dirname + "/bin/youtube-dl";
+    let ffmpegPath = "node_modules/ffmpeg-binaries/bin";
+    args.push("--ffmpeg-location=" + ffmpegPath);
+    console.log(ffmpegPath);
+    args.push(url);
     if (isWin) binaryPath += ".exe";
     if (!fs.existsSync(binaryPath)) {
       reject("Couldn't find youtube-dl binary. Try running 'npm run updateytdl'");
