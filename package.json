@@ -1,11 +1,12 @@
 {
   "name": "youtube-dl.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "youtube-dl wrapper for node",
   "main": "index.js",
   "scripts": {
     "test": "node test.js",
-    "postinstall": "node setup.js"
+    "postinstall": "node setup.js",
+    "updateytdl": "node setup.js"
   },
   "repository": {
     "type": "git",

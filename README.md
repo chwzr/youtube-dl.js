@@ -3,5 +3,7 @@
 [![npm version](https://badge.fury.io/js/youtube-dl.js.svg)](https://badge.fury.io/js/youtube-dl.js)
 
 ## Warning
+> If it works, it ain't stupid.
+
 I'm a noob. Don't judge me.
 Pullrequests are very welcome!

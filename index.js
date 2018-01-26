@@ -1,11 +1,30 @@
 const fs = require("fs");
 const got = require("got");
+const execFile = require("child_process").execFile;
 
-exports.downloadBinary = () => {
+const isWin = /^win/.test(process.platform);
+
+run = (url, args, options) => {
+  return new Promise((resolve, reject) => {
+    args.push(url);
+    let binaryPath = __dirname + "/bin/youtube-dl";
+    if (isWin) binaryPath += ".exe";
+    if (!fs.existsSync(binaryPath)) {
+      reject("Couldn't find youtube-dl binary. Try running 'npm run updateytdl'");
+    };
+    execFile(binaryPath, args, options, (error, stdout, stderr) => {
+      if (error) reject(error);
+      let data = stdout.trim();
+      resolve(data);
+    });
+  });
+
+};
+
+run.downloadBinary = () => {
   return new Promise((resolve, reject) => {
     if (!fs.existsSync(__dirname + "/bin")) fs.mkdirSync(__dirname + "/bin");
     const startTime = new Date().getTime();
-    const isWin = /^win/.test(process.platform);
     let url, filePath;
     if (isWin) {
       url = "https://yt-dl.org/downloads/latest/youtube-dl.exe";
@@ -23,4 +42,6 @@ exports.downloadBinary = () => {
         reject(err);
       });
   });
-}
+};
+
+module.exports = run;
