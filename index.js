@@ -9,7 +9,6 @@ run = (url, args, options) => {
     let binaryPath = __dirname + "/bin/youtube-dl";
     let ffmpegPath = "node_modules/ffmpeg-binaries/bin";
     args.push("--ffmpeg-location=" + ffmpegPath);
-    console.log(ffmpegPath);
     args.push(url);
     if (isWin) binaryPath += ".exe";
     if (!fs.existsSync(binaryPath)) {
