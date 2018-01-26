@@ -35,7 +35,7 @@ run.downloadBinary = () => {
     }
     got(url, {followRedirect: true, encoding: null})
       .then(resp => {
-        fs.writeFileSync(filePath, resp.body, {mode: 755});
+        fs.writeFileSync(filePath, resp.body, {mode: 0755});
         resolve((new Date().getTime() - startTime)/1000);
       })
       .catch(err => {
