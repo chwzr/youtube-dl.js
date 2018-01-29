@@ -21,7 +21,6 @@ ytdl(url, args)
   })
   .catch(err => {
     console.error(err);
-    process.exit(1);
   });
 ```
 
