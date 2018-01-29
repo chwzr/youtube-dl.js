@@ -2,7 +2,7 @@ language: node_js
 before_install:
   - sudo add-apt-repository ppa:mc3man/trusty-media -y
   - sudo apt-get update -q
-  - sudo apt install ffmpeg libav-tools gstreamer0.10-ffmpeg x264 x265 -y
+  - sudo apt install ffmpeg x264 x265 -y
 node_js:
   - "7"
   - "8"
