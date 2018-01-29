@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/Delivator/youtube-dl.js#readme",
   "dependencies": {
-    "ffmpeg-binaries": "^3.2.2-3",
     "got": "^8.0.3"
   }
 }
