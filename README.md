@@ -6,9 +6,11 @@
 
 ### Requirements
 
-FFmpeg has to be installed in your path.
+FFmpeg has to be installed to PATH
 
-Run `npm i youtube-dl.js --save`
+To install youtube-dl.js run `npm i youtube-dl.js --save`
+
+To update run `npm run updateytdl` or run the setup script (`node setup.js`)
 
 ## Usage
 
