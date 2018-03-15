@@ -28,10 +28,10 @@ run.downloadBinary = () => {
     let url, filePath;
     if (isWin) {
       url = "https://yt-dl.org/downloads/latest/youtube-dl.exe";
-      filePath = "./bin/youtube-dl.exe";
+      filePath = __dirname + "/bin/youtube-dl.exe";
     } else {
       url = "https://yt-dl.org/downloads/latest/youtube-dl";
-      filePath = "./bin/youtube-dl";
+      filePath = __dirname + "/bin/youtube-dl";
     }
     got(url, {followRedirect: true, encoding: null})
       .then(resp => {
