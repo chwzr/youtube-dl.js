@@ -1,6 +1,6 @@
 {
   "name": "youtube-dl.js",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "youtube-dl wrapper for node",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/Delivator/youtube-dl.js#readme",
   "dependencies": {
-    "got": "^8.0.3"
+    "got": "^8.3.2"
   }
 }

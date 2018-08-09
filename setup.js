@@ -1,8 +1,9 @@
 const ytdl = require("./index.js");
 
-console.log("Downloading youtube-dl binary...");
+console.log("Updating youtube-dl binary...");
 
-ytdl.downloadBinary()
-  .then(time => {
-    console.log(`youtube-dl binary download finished (${time}s)`);
-  });
+ytdl.updateBinary()
+  .then(output => {
+    console.log(`youtube-dl updated to version ${output.version} (${output.time}s)`);
+  })
+  .catch(console.error);
