@@ -4,15 +4,6 @@ const execFile = require("child_process").execFile;
 
 const isWin = /^win/.test(process.platform);
 
-function versionToInt(version) {
-  let versionSplit = version.split(".");
-  let versionInt = 0;
-  versionSplit.forEach(item => {
-    versionInt += parseInt(item);
-  });
-  return versionInt;
-}
-
 function getRemoteVersion() {
   return new Promise((resolve, reject) => {
     const API_URL = "https://api.github.com/repos/rg3/youtube-dl/releases/latest";
@@ -89,7 +80,7 @@ run.updateBinary = () => {
         if (fs.existsSync(versionFile)) {
           currentVersion = require(versionFile).version;
         }
-        if (versionToInt(remoteVersion) > versionToInt(currentVersion)) {
+        if (new Date(remoteVersion).getTime() > new Date(currentVersion).getTime()) {
           downloadBinary()
             .then(() => {
               getBinaryVersion()
@@ -105,7 +96,7 @@ run.updateBinary = () => {
             })
             .catch(reject);
         } else {
-          resolve({ time: (new Date().getTime() - startTime) / 1000, version: currentVersion });
+          resolve({ version: currentVersion, time: (new Date().getTime() - startTime) / 1000 });
         }
       })
       .catch(reject);
