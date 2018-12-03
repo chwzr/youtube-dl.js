@@ -74,7 +74,7 @@ run.updateBinary = () => {
   return new Promise((resolve, reject) => {
     const startTime = new Date().getTime();
     const versionFile = __dirname + "/bin/version.json";
-    let currentVersion = "0.0.0";
+    let currentVersion = "0";
     getRemoteVersion()
       .then(remoteVersion => {
         if (fs.existsSync(versionFile)) {
