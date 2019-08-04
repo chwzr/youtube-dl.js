@@ -1,6 +1,6 @@
 {
   "name": "youtube-loader",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "youtube-dl wrapper for node with status feedback",
   "main": "index.js",
   "scripts": {
