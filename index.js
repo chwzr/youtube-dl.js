@@ -1,6 +1,7 @@
 const fs = require("fs");
 const got = require("got");
 const execFile = require("child_process").execFile;
+var spawn = require('child_process').spawn;
 
 const isWin = /^win/.test(process.platform);
 
@@ -63,12 +64,37 @@ run = (url, args, options) => {
     if (!fs.existsSync(binaryPath)) {
       reject("Couldn't find youtube-dl binary. Try running 'npm run updateytdl'");
     }
-    execFile(binaryPath, args, options, (error, stdout, stderr) => {
-      if (error) reject(error);
-      resolve(stdout.trim());
+    // execFile(binaryPath, args, options, (error, stdout, stderr) => {
+    //   if (error) reject(error);
+    //   resolve(stdout.trim());
+    // });
+    var child = spawn(binaryPath, args);
+    if(options.status){
+        child.stdout.on('data', (data)=> {
+
+          let s = data.toString();
+          if(s.includes('[download]')){
+              let p = "0%"
+              s.split(' ').forEach(x=>{
+                  if(x.includes('%') ) p = x;
+              })
+              // console.log(p)
+              options.status(p)
+          }
+
+        }
+        );
+    }
+
+    child.on('close', function(code, signal) {
+    // process exited and no more data available on `stdout`/`stderr`
+        resolve('Finished')
     });
+
+
   });
 };
+
 
 run.updateBinary = () => {
   return new Promise((resolve, reject) => {

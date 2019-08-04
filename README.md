@@ -19,9 +19,10 @@ const ytdl = require("youtube-dl.js");
 
 let url = "https://youtu.be/q5weS3aY-Qc",
     filename = `${new Date().getTime()}.%(ext)s`,
-    args = ["-o", filename, "-x", "--audio-format=mp3", "--restrict-filenames", "--external-downloader=ffmpeg", "--audio-quality=96k"];
+    args = ["-o", filename, "-x", "--audio-format=mp3", "--restrict-filenames", "--external-downloader=ffmpeg", "--audio-quality=96k"],
+    options = {status: (data) => console.log(data)};
 
-ytdl(url, args)
+ytdl(url, args, options)
   .then(data => {
     console.log(data);
   })
@@ -30,9 +31,6 @@ ytdl(url, args)
   });
 ```
 
-## Warning
+## THX
 
-> If it works, it ain't stupid.
-
-I'm a noob. Don't judge me.
-Pullrequests are very welcome!
+for Delivator, he wrote this, i forked it to add status callbacks ;) 
