@@ -8,14 +8,14 @@
 
 FFmpeg has to be installed to PATH
 
-To install youtube-dl.js run `npm install youtube-dl.js --save`
+To install youtube-dl.js run `npm install youtube-loader --save`
 
 To update the youtube-dl binary, run `npm run updateytdl` or run the setup script (`node setup.js`)
 
 ## Usage
 
 ```javascript
-const ytdl = require("youtube-dl.js");
+const ytdl = require("youtube-loader");
 
 let url = "https://youtu.be/q5weS3aY-Qc",
     filename = `${new Date().getTime()}.%(ext)s`,
